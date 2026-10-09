@@ -1,0 +1,3 @@
+# Preserve byte-level source/configuration checksums across Git checkouts.
+# The historical freeze uses original bytes, including line endings.
+* -text
