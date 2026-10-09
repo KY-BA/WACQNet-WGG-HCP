@@ -1,0 +1,27 @@
+{
+  "stage": "WACQNET_DEVELOPMENT",
+  "protocol_version": "1.0.2",
+  "frozen_at_utc": "2026-09-26T16:25:20.104970+00:00",
+  "status": "PASS",
+  "protocol_sha256": "94755b04a01c5abd93e90d4b1399b0c52f5c8090e9e69fb2f7997bf834fbd683",
+  "backgrounds": 36,
+  "scene_hashes_verified": 36,
+  "training_candidate": "WACQ_FULL",
+  "lobo_folds": 36,
+  "current_v3_calibration_allowed": false,
+  "current_v3_confirmatory_test_allowed": false,
+  "artifacts": {
+    "config": "4fc403056f841735a3625f039d4d31d9e3993ade53e4cff92b3d4c9af0cd5d81",
+    "mathematical_protocol": "fc3413d621928da9630d3cc7800f7813b68184fe871a5e644a2eba124b97f2ac",
+    "development_manifest": "9826f12dd46abb19443de228f7042afeb7be22cfbe2524e7cf282243dd490959",
+    "dependency::D:\\CO2\\JoffreyDumontLeBrazidec-co2-oco3-inv-dl-bdf7f24\\datas_joff\\data\\2km_forOco3_32\\dataset.nc": "0e30beb22b8c3d10fb17defb72147d869376ab90b4812b7befe8195eeb093d0b",
+    "dependency::D:\\CO2\\JoffreyDumontLeBrazidec-co2-oco3-inv-dl-bdf7f24\\experiments\\hpr_hyperparameter_crosscontrol_v1\\weights\\formal\\mixed_xco2uv_hpr_5e4_do020_bs32_crosscontrol_s42\\norm_layer.keras": "b881a1757c8e7e034b8094035fb79d3a0f86f67f0a96ac53141cb91b28f4c586",
+    "dependency::D:\\CO2\\JoffreyDumontLeBrazidec-co2-oco3-inv-dl-bdf7f24\\experiments\\hpr_hyperparameter_crosscontrol_v1\\weights\\formal\\mixed_xco2uv_hpr_5e4_do020_bs32_crosscontrol_s42\\w_best.h5": "efeedddd7834f375c8e9a783aba6fa4ad26382b39dfd74e75ae38516c792e2e6",
+    "dependency::D:\\CO2\\_third\\outputs\\bti_gdro_v2_calibration\\calibration_predictions.csv": "d070029a3563b9988397394e1f40dbb7265136cd92ea8085290f7f8878f657d2",
+    "dependency::D:\\CO2\\_third\\outputs\\bti_hcp_development\\bti_development_features.csv": "d951485736c299aca19771c682295472dd9fc4c6d4552bfcf28dcdbeb9f2faca",
+    "dependency::D:\\CO2\\_third\\outputs\\bti_hcp_v2_calibration\\bti_v2_calibration_predictions.csv": "16538c3250b4514b0c8c6d3d8160338c57e629d4bef12c44b5950c73378503b0",
+    "dependency::D:\\CO2\\_third\\outputs\\bti_scene_tail_encoder_development\\scene_encoder_features.csv": "2253c31c928780260744b5f22981dd50ae28757d1df6db854cd0c0c7fa7179f4",
+    "dependency::D:\\CO2_third\\configs\\detector_robustness.yaml": "8c3ddb9e7c8fc1d4816f7d97962a214f540a41ad8ec5d5b27f7f8ef70d8c066e"
+  },
+  "failures": []
+}

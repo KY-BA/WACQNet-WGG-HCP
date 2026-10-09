@@ -1,0 +1,35 @@
+project_root: D:/CO2_third
+seed: 42
+input:
+  manifest: D:/CO2_third/outputs/detectability_labels/detectability_manifest.csv
+  h5: D:/CO2_third/outputs/detectability_labels/detectability_stage2.h5
+  source_manifest: D:/CO2/JoffreyDumontLeBrazidec-co2-oco3-inv-dl-bdf7f24/data_plus/earth_all/absolute_balanced_v2_plus_alpha_xco2uv/background_manifest.csv
+detector:
+  false_alarm_rate: 0.05
+  epsilon: 1.0e-6
+  k_null: 32
+  min_null_controls: 16
+  min_source_distance_pixels: 6.0
+  max_template_overlap: 0.10
+  grid_resolution_km: 2.0
+  variance_estimator: mad
+  min_background_pixels: 100
+  plume_exclusion_sigma: 3.0
+  source_buffer_km: 4.0
+  background_sigma_px: 3.0
+  source_y: 15.5
+  source_x: 15.5
+  template:
+    sigma0_km: 2.0
+    lateral_growth_rate: 0.12
+    decay_length_km: 30.0
+    max_downwind_distance_km: 60.0
+    source_exclusion_km: 1.0
+    min_wind_speed: 0.2
+    v_positive_toward_increasing_row: true
+selection:
+  development_partitions: [train, validation]
+  sealed_calibration_partition: calibration
+  external_test_partition: test
+  rule: normalized_if_lower_dev_lobo_median_absolute_fpr_error_and_no_worse_iqr_and_no_more_fpr_gt_0_30
+output_dir: D:/CO2_third/outputs/detectability_labels_v2

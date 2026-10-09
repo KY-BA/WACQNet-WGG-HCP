@@ -1,0 +1,12 @@
+{
+  "method": "BTI-WorstGroupGuard-HCP",
+  "center": "frozen_HPR_not_WACQNet",
+  "within_group_coverage": 0.9,
+  "target_group_tail_rank_probability": 0.95,
+  "within_group_rank": "ceil((n_g+1)*0.90)",
+  "between_group_rank": "ceil((m+1)*0.95)",
+  "development_lobo_training_groups": 35,
+  "development_rule": "maximum of 35 training group-tail thresholds",
+  "formal_new_calibration_qhat": null,
+  "scope": "Development protocol only; no external-data authorization"
+}

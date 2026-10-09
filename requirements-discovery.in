@@ -1,0 +1,12 @@
+# Static import inventory, NOT a historical environment lock.
+# Do not infer original experiment versions from this unpinned list.
+# In particular, review historical TensorFlow/Keras compatibility before use.
+numpy
+pandas
+scipy
+scikit-learn
+tensorflow
+h5py
+PyYAML
+matplotlib
+pytest

@@ -1,0 +1,105 @@
+{
+  "stage": "BTI_ASYMMETRIC_GDRO_DEVELOPMENT",
+  "protocol_version": "1.0.0",
+  "preregistered_utc": "2026-09-25T00:00:00Z",
+  "development_data": {
+    "training_original_13": "D:\\CO2\\_third\\outputs\\bti_hcp_development\\bti_development_features.csv",
+    "training_original_13_sha256": "d951485736c299aca19771c682295472dd9fc4c6d4552bfcf28dcdbeb9f2faca",
+    "training_demoted_old_calibration_12": "D:\\CO2\\_third\\outputs\\bti_hcp_v2_calibration\\bti_v2_calibration_predictions.csv",
+    "training_demoted_old_calibration_12_sha256": "16538c3250b4514b0c8c6d3d8160338c57e629d4bef12c44b5950c73378503b0",
+    "training_old_split_manifest": "D:\\CO2\\_third\\outputs\\bti_hcp_v2_split\\bti_v2_fresh_split_manifest.csv",
+    "training_old_split_manifest_sha256": "cfd7abdbb9686f55295b4cb91ad31c8b5bc07373c4e8703ba5dab16a23f19157",
+    "external_development_demoted_v2_calibration_11": "D:\\CO2\\_third\\outputs\\bti_gdro_v2_calibration\\calibration_predictions.csv",
+    "external_development_demoted_v2_calibration_11_sha256": "d070029a3563b9988397394e1f40dbb7265136cd92ea8085290f7f8878f657d2",
+    "v2_split_manifest": "D:\\CO2\\_third\\outputs\\bti_shcp_v2_correction_processing\\bti_shcp_new_11_12_split_manifest_v2.csv",
+    "v2_split_manifest_sha256": "3cf7668c61b7ff346ebbeafcd6764ea481a7171e768246dd9a7422bd759aa125",
+    "v2_split_combined_sha256": "4d7fa05456d5f869c7c83ab473b594bd3be7c40e0c19585377c3fcca0c9c4b76",
+    "expected_training_groups": 25,
+    "expected_external_development_groups": 11,
+    "current_v2_calibration_role_downgraded_to_development": true,
+    "current_v2_confirmatory_test_allowed": false,
+    "all_historical_confirmatory_tests_allowed": false
+  },
+  "frozen_a4_reference": {
+    "artifact": "D:\\CO2\\_third\\outputs\\bti_gdro_hcp_development\\bti_gdro_frozen.json",
+    "artifact_sha256": "d047450c303edb49ecc640c30eb92fc8b6193d6181cde168f4cdd8c9be7ca481",
+    "lobo_metrics": "D:\\CO2\\_third\\outputs\\bti_gdro_hcp_development\\bti_gdro_lobo_background_metrics.csv",
+    "lobo_metrics_sha256": "721014353129da13944158256d9650e7805c30f8de2a555c8b79c530cfc20994"
+  },
+  "features": {
+    "full": [
+      "log_mu",
+      "log_background_sigma",
+      "logit_valid_fraction",
+      "negative_log_retained_fraction",
+      "negative_log_input_wind_speed"
+    ],
+    "forbidden": [
+      "true_emission",
+      "absolute_error",
+      "ape",
+      "background_id",
+      "background_type",
+      "confirmatory_test_performance"
+    ]
+  },
+  "optimization": {
+    "fit_rows_per_group": 400,
+    "fit_subsample_seed": 20260925,
+    "pinball_tau": 0.90,
+    "dro_temperature": 0.10,
+    "tail_quantile": 0.90,
+    "tail_cvar_fraction": 0.20,
+    "l2_penalty": 0.01,
+    "log_mu_raw_coefficient_bounds": [0.0, 1.5],
+    "other_raw_coefficient_bounds": [-1.5, 1.5],
+    "correction_clip": 3.0,
+    "residual_epsilon": 0.001,
+    "maxiter": 120,
+    "candidates": [
+      {
+        "id": "A1_ASYMMETRIC_MEAN_POWER",
+        "features": ["log_mu"],
+        "tail_variance_weight": 0.0,
+        "tail_cvar_weight": 0.0,
+        "width_weight": 0.0
+      },
+      {
+        "id": "A2_ASYMMETRIC_GROUP_DRO",
+        "features": "full",
+        "tail_variance_weight": 0.0,
+        "tail_cvar_weight": 0.0,
+        "width_weight": 0.0
+      },
+      {
+        "id": "A3_BTI_AGDRO",
+        "features": "full",
+        "tail_variance_weight": 0.25,
+        "tail_cvar_weight": 0.50,
+        "width_weight": 0.01
+      }
+    ],
+    "preregistered_primary_candidate": "A3_BTI_AGDRO"
+  },
+  "validation": {
+    "inner_protocol": "25-background leave-one-background-out",
+    "external_development_protocol": "11 demoted v2 Calibration backgrounds",
+    "nominal_coverage": 0.90,
+    "calibration_rule": "deterministic equal-group hierarchical conformal quantile",
+    "selection_unit": "background",
+    "primary_adoption_gate": {
+      "n_picp_lt_0_85_not_worse_than_frozen_a4": true,
+      "n_picp_lt_0_80_not_worse_than_frozen_a4": true,
+      "median_coverage_error_tolerance_vs_a4": 0.02,
+      "minimum_median_normalized_width_reduction_vs_a4": 0.20,
+      "minimum_lower_zero_fraction_reduction_vs_a4": 0.15,
+      "minimum_p95_tail_cv_reduction_vs_a2": 0.10
+    }
+  },
+  "forbidden_data": {
+    "v2_confirmatory_predictions": "D:\\CO2\\_third\\outputs\\bti_gdro_v2_confirmatory_test\\confirmatory_predictions.csv",
+    "v2_confirmatory_result": "D:\\CO2\\_third\\outputs\\bti_gdro_v2_confirmatory_test\\bti_gdro_v2_confirmatory_frozen.json",
+    "read_allowed": false
+  },
+  "output_dir": "D:\\CO2\\_third\\outputs\\bti_asymmetric_gdro_development"
+}

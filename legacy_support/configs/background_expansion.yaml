@@ -1,0 +1,84 @@
+project_root: D:/CO2_third
+seed: 20260814
+legacy:
+  repo: D:/CO2/JoffreyDumontLeBrazidec-co2-oco3-inv-dl-bdf7f24
+  extraction_script: D:/CO2/JoffreyDumontLeBrazidec-co2-oco3-inv-dl-bdf7f24/tools/extract_sam_scene_from_daily_lite.py
+  background_root: D:/CO2/JoffreyDumontLeBrazidec-co2-oco3-inv-dl-bdf7f24/data_plus/earth_bg
+  manifest: D:/CO2/JoffreyDumontLeBrazidec-co2-oco3-inv-dl-bdf7f24/data_plus/earth_bg/background_manifest.csv
+  reproduction_scene: scene_20210204_182755_183000_lat36p42_37p00_lonm98p4_m97p5
+local_data:
+  daily_lite_root: D:/CO2/earth_data/truth_bg
+  additional_roots:
+    - D:/CO2/JoffreyDumontLeBrazidec-co2-oco3-inv-dl-bdf7f24/datas_joff/data/oco3_raw
+    - D:/CO2_third
+product:
+  expected_short_name: OCO3_L2_Lite_FP
+  provider: NASA GES DISC
+  file_format: NetCDF4/HDF5
+processing:
+  grid_size: 32
+  resolution_km: 2.0
+  radius_factor: 0.66
+  idw_power: 2.0
+  gaussian_sigma_px: 3.0
+  valid_fraction_min: 0.60
+  residual_std_max_ppm: 1.0
+  center_bias_abs_max_ppm: 0.50
+  positive_tail_ratio_max: 0.03
+  crop_half_width_km: 32.0
+selection:
+  minimum_fresh_backgrounds: 9
+  source_contamination_tokens:
+    - fossil_
+    - powerplant
+    - harrington_station
+  new_background_type_map:
+    fossil_Johannesburg_South_Africa: urban
+    fossil_Cairo_Egypt: urban
+    ecostress_ar_vir: forest
+    campaign_texmex_oakgrove_powerplant: plain
+    fossil_Sao_Paulo_Brazil: urban
+    Lisbon_Portugal: urban
+    ecostress_au_das: plain
+    ecostress_br_no: plain
+    fossil_Az_Zour_powerplant: arid
+    fossil_Kendal_powerplant: plain
+    ecostress_ar_slu: forest
+    ecostress_au_asm: arid
+    ecostress_au_dry: plain
+    ecostress_au_stp: plain
+    v211060_Etna: mountain
+    ecostress_us_hn1: arid
+    ecostress_au_tum: forest
+    v358020_Calbuco: mountain
+  target_roles:
+    expansion_development: 4
+    fresh_calibration: 4
+    fresh_confirmatory_test: 3
+  candidates:
+    - {date: "200405", target_name: ecostress_de_tha, background_type: forest, rationale: "Tharandt ecosystem site; non-fossil target"}
+    - {date: "200415", target_name: sif_Santa_Rita_Cluster_USA, background_type: arid, rationale: "Santa Rita dryland SIF target"}
+    - {date: "200417", target_name: ecostress_us_wwt, background_type: forest, rationale: "Willamette ecosystem target; non-fossil target"}
+    - {date: "201010", target_name: v305060_Changbaishan_CN_Baekdusan_Paekdusan_NK, background_type: mountain, rationale: "Mountain/forest terrain target"}
+    - {date: "210426", target_name: ecostress_au_asm, background_type: arid, rationale: "Australian arid ecosystem target"}
+    - {date: "210620", target_name: ecostress_us_me2, background_type: forest, rationale: "Metolius ecosystem target; non-fossil target"}
+    - {date: "210628", target_name: sif_Harvard_Forest_USA, background_type: forest, rationale: "Harvard Forest SIF target"}
+    - {date: "230801", target_name: val_Biust_Botswana, background_type: arid, rationale: "Botswana validation target"}
+    - {date: "250602", target_name: fossil_Tehran_Iran, background_type: urban, rationale: "Urban domain candidate; screened before model inference"}
+    - {date: "250610", target_name: fossil_Poplar_River_powerplant, background_type: plain, rationale: "Prairie/plain domain candidate; screened before model inference"}
+    - {date: "250811", target_name: fossil_Philadelphia_USA, background_type: urban, rationale: "Urban domain candidate; screened before model inference"}
+  screened_type_map:
+    fossil_Belchatow_powerplant: plain
+    ecostress_au_asm: arid
+    fossil_Sheerness_powerplant: plain
+    fossil_Medina_Saudi_Arabia: arid
+    validation_eastern_colorado: mountain
+    fossil_Milan_Italy: urban
+download:
+  metadata_only_first: true
+  max_download_granules: 25
+  collection_concept_id: C2910086168-GES_DISC
+  temporal_start: 2024-07-16T00:00:00Z
+  temporal_end: 2024-09-30T23:59:59Z
+  initial_download_count: 8
+output_dir: D:/CO2_third/outputs/background_expansion

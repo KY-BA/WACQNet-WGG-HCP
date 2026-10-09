@@ -1,0 +1,41 @@
+{
+  "stage": "BTI_WORST_GROUP_GUARD_HCP_DEVELOPMENT",
+  "protocol_version": "1.0.0",
+  "development_groups": 36,
+  "confirmatory_test_allowed": false,
+  "base_protocol": "D:\\CO2\\_third\\configs\\bti_scene_condition_quantile_development.json",
+  "algorithm": {
+    "name": "BTI-WorstGroupGuard-HCP",
+    "frozen_score": "absolute_error / A4_deployable_scale",
+    "within_group_coverage": 0.90,
+    "target_group_success_probability": 0.95,
+    "within_group_rule": "ceil((n_b+1)*0.90)-th order statistic",
+    "between_group_rule": "ceil((m+1)*0.95)-th order statistic of group-tail thresholds",
+    "outer_lobo_specialization": "with m=35, use max of 35 training group-tail thresholds",
+    "candidate_search": false,
+    "safety_factor_search": false,
+    "deployment_features": "frozen HPR prediction and frozen A4 scale only"
+  },
+  "validation": {
+    "protocol": "36-background outer LOBO; heldout background excluded from both within-group tails and between-group qhat",
+    "nominal_coverage": 0.90,
+    "reference": "A4_FROZEN_REFERENCE",
+    "primary": "BTI_WORST_GROUP_GUARD_HCP",
+    "minimum_heldout_groups_picp_at_least_0_90": 35,
+    "maximum_n_picp_below_0_85": 1,
+    "maximum_n_picp_below_0_80": 0,
+    "minimum_worst_background_picp": 0.80,
+    "maximum_median_normalized_width_ratio_vs_a4": 1.50
+  },
+  "theory": {
+    "hierarchical_conformal_reference": "Lee, Barber and Willett, Distribution-free inference with hierarchical data, 2023",
+    "two_layer_reference": "Dunn, Wasserman and Ramdas, Distribution-Free Prediction Sets for Two-Layer Hierarchical Models",
+    "claim_scope": "finite-sample rank guarantee for an exchangeable new group-tail threshold; not arbitrary-shift conditional coverage"
+  },
+  "stop_rule": "If the preregistered Development gates fail, stop adding HCP variants and do not access Confirmatory data.",
+  "forbidden_data": {
+    "read_allowed": false,
+    "scope": "all historical and current confirmatory test scenes, predictions, metrics and labels"
+  },
+  "output_dir": "D:\\CO2\\_third\\outputs\\bti_worst_group_guard_hcp_development"
+}

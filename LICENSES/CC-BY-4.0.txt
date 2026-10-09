@@ -1,0 +1,28 @@
+Creative Commons Attribution 4.0 International (CC BY 4.0)
+
+The project-authored contributions identified in LICENSE_SCOPE.md are
+licensed under the Creative Commons Attribution 4.0 International License.
+
+License deed: https://creativecommons.org/licenses/by/4.0/
+Full, controlling legal terms:
+https://creativecommons.org/licenses/by/4.0/legalcode.en
+Plain-text legal terms:
+https://creativecommons.org/licenses/by/4.0/legalcode.txt
+
+This file is a license notice incorporating the unmodified license by
+reference, not a replacement or abridgement of its legal terms.
+
+Attribution requested for the project contribution:
+Guixue Cheng, Jiahao Chen, and Ye Deng; WACQNet Development release,
+packaging revision 2 (2026).
+Contact: Jiahao Chen, cjhhumble@mail.shiep.edu.cn.
+
+Include the actual repository record URL/DOI when one has been assigned;
+no identifier has been assigned by this local packaging operation.
+Retain this license notice, provide the license link, and indicate changes.
+
+This license applies only to rights the project authors are authorized to
+license. It does not impose new restrictions on public-domain observations,
+transfer third-party copyrights, license patents or trademarks, or imply
+endorsement by NASA, the university, or upstream creators. See
+LICENSE_SCOPE.md and THIRD_PARTY_NOTICES.md for the material boundaries.

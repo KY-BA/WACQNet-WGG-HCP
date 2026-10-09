@@ -1,0 +1,91 @@
+{
+  "stage": "BTI_SCENE_CONDITION_INTERACTION_QUANTILE_DEVELOPMENT",
+  "protocol_version": "1.0.0",
+  "preregistered_utc": "2026-09-25T11:00:00Z",
+  "scientific_status": "post-confirmatory algorithm development; adoption requires a future untouched calibration and confirmatory test",
+  "development_data": {
+    "base_asymmetric_protocol": "D:\\CO2\\_third\\configs\\bti_asymmetric_gdro_development.json",
+    "base_asymmetric_protocol_sha256": "f7d3162b7a8322f6c895c4ab81c11d89a00a3c903cd485a8604918f3345830c9",
+    "scene_source_protocol": "D:\\CO2\\_third\\configs\\bti_scene_tail_encoder_development.json",
+    "scene_source_protocol_sha256": "5ae0dbca16751dc00ddd83bc4ca8f1ce99ae562961f8051b4d9bdc415f0ccda2",
+    "training_groups": 25,
+    "external_development_groups": 11,
+    "all_confirmatory_test_roles_allowed": false
+  },
+  "frozen_base_scale": {
+    "id": "Q0_FROZEN_A4_REFERENCE",
+    "artifact": "D:\\CO2\\_third\\outputs\\bti_gdro_hcp_development\\bti_gdro_frozen.json",
+    "artifact_sha256": "d047450c303edb49ecc640c30eb92fc8b6193d6181cde168f4cdd8c9be7ca481",
+    "mean_power_b": 0.89187068,
+    "scale_clip": 3.0
+  },
+  "interaction_quantile": {
+    "scene_encoder": "fixed_13_descriptor_robust_PCA5",
+    "scene_components": 5,
+    "condition_features": [
+      "log_mu",
+      "negative_log_input_wind_speed",
+      "logit_valid_fraction",
+      "negative_log_retained_fraction"
+    ],
+    "fit_rows_per_group": 500,
+    "fit_subsample_seed": 20260925,
+    "quantile_tau": 0.90,
+    "dro_temperature": 0.08,
+    "smooth_pinball_delta": 0.05,
+    "l2_penalty": 0.02,
+    "coefficient_bound": 1.5,
+    "correction_clip": 1.5,
+    "residual_epsilon": 0.001,
+    "maxiter": 300,
+    "candidates": [
+      {
+        "id": "Q1_ADDITIVE_ASYMMETRIC_QUANTILE",
+        "include_interactions": false,
+        "group_dro_weight": 0.0
+      },
+      {
+        "id": "Q2_INTERACTION_ASYMMETRIC_QUANTILE",
+        "include_interactions": true,
+        "group_dro_weight": 0.0
+      },
+      {
+        "id": "Q3_BTI_SCIQ_GDRO_HCP",
+        "include_interactions": true,
+        "group_dro_weight": 0.5
+      }
+    ],
+    "preregistered_primary_candidate": "Q3_BTI_SCIQ_GDRO_HCP",
+    "deployment_forbidden_features": [
+      "true_emission",
+      "absolute_error",
+      "over_error",
+      "under_error",
+      "ape",
+      "background_id",
+      "background_type",
+      "site_id",
+      "confirmatory_test_performance"
+    ]
+  },
+  "validation": {
+    "inner_protocol": "25-background leave-one-background-out; scene encoder and both quantile heads refit inside each fold",
+    "external_development_protocol": "11 demoted v2 Calibration backgrounds",
+    "nominal_coverage": 0.90,
+    "calibration_rule": "deterministic equal-group hierarchical conformal quantile",
+    "selection_unit": "independent background",
+    "primary_adoption_gate": {
+      "maximum_external_backgrounds_picp_below_0_85": 1,
+      "maximum_external_backgrounds_picp_below_0_80": 1,
+      "maximum_external_median_coverage_error": 0.05,
+      "minimum_normalized_width_reduction_vs_frozen_a4": 0.10,
+      "maximum_p95_tail_cv_increase_vs_frozen_a4": 0.02,
+      "maximum_lower_zero_fraction_increase_vs_frozen_a4": 0.02
+    }
+  },
+  "forbidden_data": {
+    "read_allowed": false,
+    "scope": "all historical and current confirmatory test scenes, predictions, metrics, and labels"
+  },
+  "output_dir": "D:\\CO2\\_third\\outputs\\bti_scene_condition_quantile_development"
+}

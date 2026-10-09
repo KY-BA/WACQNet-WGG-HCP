@@ -1,0 +1,4 @@
+WACQNet protocol frozen before training.
+protocol_sha256=94755b04a01c5abd93e90d4b1399b0c52f5c8090e9e69fb2f7997bf834fbd683
+current_v3_calibration_allowed=false
+current_v3_confirmatory_test_allowed=false

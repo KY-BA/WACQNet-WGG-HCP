@@ -1,0 +1,97 @@
+{
+  "artifact_scope": "frozen_A4_parameter_object_not_a_plot_or_table_result",
+  "source_sha256": "d047450c303edb49ecc640c30eb92fc8b6193d6181cde168f4cdd8c9be7ca481",
+  "source_full_artifact_included": false,
+  "mean_power_b": 0.89187068,
+  "correction_clip": 3.0,
+  "score_formula": "|Q_true-Q_hat| / [(max(Q_hat,0)+1)^0.89187068 * exp(clip(z(x)^T beta-c,-3,3))]",
+  "deployment_features": [
+    "log_mu",
+    "log_background_sigma",
+    "logit_valid_fraction",
+    "negative_log_retained_fraction",
+    "negative_log_input_wind_speed"
+  ],
+  "forbidden_deployment_features": [
+    "true_emission",
+    "absolute_error",
+    "ape",
+    "background_id",
+    "background_type"
+  ],
+  "fit": {
+    "method": "A4_BTI_GDRO",
+    "feature_names": [
+      "log_mu",
+      "log_background_sigma",
+      "logit_valid_fraction",
+      "negative_log_retained_fraction",
+      "negative_log_input_wind_speed"
+    ],
+    "feature_center": [
+      2.7666457655690464,
+      -1.0687420123961442,
+      0.8976435528724862,
+      0.1479374567876712,
+      -1.9656411156454854
+    ],
+    "feature_scale": [
+      0.6498751878297028,
+      0.3126410996771893,
+      0.8267784977424332,
+      0.28434493020496066,
+      0.24872222763902005
+    ],
+    "coefficients": [
+      -0.19038311400784905,
+      0.03196601157774443,
+      0.044735517348042445,
+      -0.010287335266896458,
+      0.07677309804978369
+    ],
+    "coefficient_map": {
+      "log_mu": -0.19038311400784905,
+      "log_background_sigma": 0.03196601157774443,
+      "logit_valid_fraction": 0.044735517348042445,
+      "negative_log_retained_fraction": -0.010287335266896458,
+      "negative_log_input_wind_speed": 0.07677309804978369
+    },
+    "correction_center": -4.787836793695988e-16,
+    "objective": 0.3914988987973432,
+    "data_component": 0.17742405433999137,
+    "tail_variance": 0.016075881774662876,
+    "tail_cvar": 0.20558421596643064,
+    "l2_component": 0.045268760358966376,
+    "optimizer_success": true,
+    "optimizer_message": "Optimization terminated successfully."
+  },
+  "training_backgrounds": [
+    "bti_240905_Salvador_Brazil_0",
+    "bti_241001_campaign_texmex_fort_worth_0",
+    "bti_241012_ecostress_il_yat_0",
+    "bti_241204_ecostress_ne_waf_0",
+    "bti_241212_Venice_Italy_0",
+    "bti_250207_ecostress_us_tx2_0",
+    "bti_250214_ecostress_ssh_czo_cal_0",
+    "bti_250406_sif_Santa_Rita_Cluster_USA_0",
+    "bti_250504_Christchurch_NewZealand_0",
+    "bti_250815_ecostress_us_var_0",
+    "bti_251011_ecostress_us_los_0",
+    "bti_251215_campaign_texmex_baton_rouge_0",
+    "fresh_240722_ecostress_ar_slu_0",
+    "fresh_250610_validation_eastern_colorado",
+    "fresh_r2_240801_ecostress_au_stp_0",
+    "fresh_r4_240817_ecostress_us_hn1_0",
+    "scene_20200814_204505_204710_lat44p22_44p80_lonm89p8_m88p9",
+    "scene_20210124_142615_142820_lat13p2_13p78_lon2p35_3p25",
+    "scene_20210420_210835_211040_lat38p25_38p83_lonm122p0_m121p1",
+    "scene_20210421_074525_074725_lat48p30_48p88_lon1p9_2p8",
+    "scene_20211130_055145_055345_lat25p9_26p48_lon105p9_106p8",
+    "scene_20220725_010105_010310_lat43p22_43p80_lonm120p2_m119p3",
+    "scene_20221020_033705_033910_lat43p75_44p33_lon124p3_125p2",
+    "scene_20231006_192245_192450_lat43p20_43p78_lonm120p3_m119p4",
+    "scene_20250927_200015_200220_lat39p62_40p20_lonm104p5_m103p6"
+  ],
+  "training_background_count": 25,
+  "notice": "fit retains optimizer bookkeeping because the original GDROFit constructor requires these fields; this is not a newly fitted artifact. Original full-file hash checks require the omitted original artifact."
+}

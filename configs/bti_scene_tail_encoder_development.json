@@ -1,0 +1,95 @@
+{
+  "stage": "BTI_SCENE_TAIL_CONDITIONAL_ENCODER_DEVELOPMENT",
+  "protocol_version": "1.0.0",
+  "preregistered_utc": "2026-09-25T10:00:00Z",
+  "scientific_status": "post-confirmatory algorithm development requiring a future untouched confirmatory set if adopted",
+  "development_data": {
+    "base_asymmetric_protocol": "D:\\CO2\\_third\\configs\\bti_asymmetric_gdro_development.json",
+    "base_asymmetric_protocol_sha256": "f7d3162b7a8322f6c895c4ab81c11d89a00a3c903cd485a8604918f3345830c9",
+    "expected_training_groups": 25,
+    "expected_external_development_groups": 11,
+    "current_v2_calibration_role_downgraded_to_development": true,
+    "all_confirmatory_test_roles_allowed": false
+  },
+  "scene_sources": {
+    "legacy_original_scene_root": "D:\\CO2\\JoffreyDumontLeBrazidec-co2-oco3-inv-dl-bdf7f24\\data_plus\\earth_bg",
+    "historical_expansion_manifest": "D:\\CO2_third\\outputs\\background_expansion\\fresh_background_split_manifest.csv",
+    "historical_expansion_manifest_sha256": "ad5846028f296e0822a237d62500f75beb904258771e4502c46ef1cf8be4206e",
+    "old_calibration_manifest": "D:\\CO2\\_third\\outputs\\bti_hcp_v2_split\\bti_v2_fresh_split_manifest.csv",
+    "old_calibration_manifest_sha256": "cfd7abdbb9686f55295b4cb91ad31c8b5bc07373c4e8703ba5dab16a23f19157",
+    "external_development_manifest": "D:\\CO2\\_third\\outputs\\bti_shcp_v2_correction_processing\\bti_shcp_new_11_12_split_manifest_v2.csv",
+    "external_development_manifest_sha256": "3cf7668c61b7ff346ebbeafcd6764ea481a7171e768246dd9a7422bd759aa125",
+    "allowed_npz_arrays": [
+      "background_residual",
+      "background_low",
+      "neighbor_count",
+      "valid_mask",
+      "xco2_grid"
+    ],
+    "forbidden_scene_roles": [
+      "fresh_calibration",
+      "fresh_confirmatory_test",
+      "bti_confirmatory_test",
+      "new_confirmatory_test"
+    ]
+  },
+  "frozen_base_scale": {
+    "id": "S0_FROZEN_A4_REFERENCE",
+    "artifact": "D:\\CO2\\_third\\outputs\\bti_gdro_hcp_development\\bti_gdro_frozen.json",
+    "artifact_sha256": "d047450c303edb49ecc640c30eb92fc8b6193d6181cde168f4cdd8c9be7ca481",
+    "mean_power_b": 0.89187068,
+    "scale_clip": 3.0
+  },
+  "scene_encoder": {
+    "architecture": "fixed_13_descriptor_robust_PCA5",
+    "n_components": 5,
+    "ridge_penalty": 5.0,
+    "group_tail_quantile": 0.90,
+    "factor_bounds": [0.5, 3.0],
+    "candidates": [
+      {
+        "id": "S0_FROZEN_A4_REFERENCE",
+        "upper_z": null
+      },
+      {
+        "id": "S1_STCE_CONDITIONAL_MEAN",
+        "upper_z": 0.0
+      },
+      {
+        "id": "S2_BTI_STCE_OOD_GUARDED",
+        "upper_z": 0.6744897501960817
+      }
+    ],
+    "preregistered_primary_candidate": "S2_BTI_STCE_OOD_GUARDED",
+    "deployment_forbidden_features": [
+      "true_emission",
+      "absolute_error",
+      "ape",
+      "background_id",
+      "background_type",
+      "site_id",
+      "confirmatory_test_performance"
+    ]
+  },
+  "validation": {
+    "inner_protocol": "25-background leave-one-background-out with encoder and tail decoder refit inside each fold",
+    "external_development_protocol": "11 demoted v2 Calibration backgrounds",
+    "nominal_coverage": 0.90,
+    "calibration_rule": "deterministic equal-group hierarchical conformal quantile",
+    "selection_unit": "independent background",
+    "primary_adoption_gate": {
+      "maximum_external_backgrounds_picp_below_0_85": 1,
+      "maximum_external_backgrounds_picp_below_0_80": 1,
+      "maximum_external_median_coverage_error": 0.05,
+      "minimum_normalized_width_reduction_vs_frozen_a4": 0.05,
+      "maximum_p95_tail_cv_increase_vs_frozen_a4": 0.02,
+      "maximum_lower_zero_fraction_increase_vs_frozen_a4": 0.02
+    }
+  },
+  "forbidden_data": {
+    "v2_confirmatory_predictions": "D:\\CO2\\_third\\outputs\\bti_gdro_v2_confirmatory_test\\confirmatory_predictions.csv",
+    "historical_confirmatory_results": "all previously designated confirmatory roles",
+    "read_allowed": false
+  },
+  "output_dir": "D:\\CO2\\_third\\outputs\\bti_scene_tail_encoder_development"
+}
