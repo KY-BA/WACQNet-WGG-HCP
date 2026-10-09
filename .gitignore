@@ -1,0 +1,28 @@
+# Prevent accidental publication of binaries, credentials, caches and outputs.
+.env
+.env.*
+.netrc
+*credentials*
+*.pem
+*.key
+__pycache__/
+.pytest_cache/
+.venv/
+venv/
+# Anchor asset directories to repository root: do not exclude source modules
+# in legacy_support/src/data/ or other nested code packages.
+/raw/
+/data/
+/cache/
+/outputs/
+/checkpoints/
+*.h5
+*.hdf5
+*.keras
+*.pt
+*.pth
+*.nc
+*.nc4
+*.npz
+*.zip
+/local_audit*/
